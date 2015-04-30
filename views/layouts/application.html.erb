@@ -4,16 +4,41 @@
     <p>
       <h3> All About Me</h3>
       <p>Hi, this is Diego's site</p>
-      <a href='me.html'>Me</a>
-      <a href="index.html">Index</a>
-      <a href="diego.html">Diego</a>
-
+      <a href='me'>Me</a>
+      <a href="index">Index</a>
+      <a href="diego">Diego</a>
+      <a href="https://www.facebook.com/dbocanegra">Diego's Facebook</a>
     </p>
     <hr />
     <div>
       <%= yield %>
     </div>
     <hr />
+    <div>
+        <form method='post' action="<%= @request.path %>">
+            First name: <input type="text" name="first_name" placeholder='first name'/><br />
+            <label for="awesome">Is Diego awesome?</label>
+            <input type="radio" name="awesome" value="yes" checked> Yes
+            <br>
+            <input type="radio" name="awesome" value="no">No
+            <input type="submit" value="Submit" />
+        </form>
+    </div>
+
+    <div>
+      <% if @request.query['first_name'] && !@request.query['first_name'].empty? %>
+        Hello there <%= @request.query['first_name'] %>.
+        <% if @request.query['awesome'] == "yes"%>
+          Right on Bro!
+        <% else %>
+          Fuck you, you chicken twat.
+        <% end %>
+
+      <% else %>
+        Enter thy name
+      <% end %>
+    </div>
+
     <div>
       <h3> <a href="#">Contact</a></h3>
       <p>Copyright 2015</p>
