@@ -1,0 +1,21 @@
+<h1>Diego Bocanegra</h1>
+	<h2>Activities</h2>
+		<% activities = ['Musician', 'Sound Designer', 'Web Developer', 'German Student'] %>
+		<ul>
+			<% activities.each do |activity| %>
+			<li><%= activity %></li>
+			<% end %>
+		</ul>
+
+	<h2>Born on</h2>
+		<% require 'date' %>
+		<%= birth_date = Date.civil(1982,10,15) %>
+		<% now = Date.today %>
+	<h2>Exact Age</h2>
+		<% age = (now - birth_date).to_i %>
+		<p> <%= "Diego is #{age} days, or #{age/365.25} years old"  %> </p>
+
+
+
+
+
